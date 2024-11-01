@@ -3,213 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VIP Angebote</title>
+  <title>Seite Gesperrt</title>
   <style>
     /* Grundlegende Stile für die Seite */
     body {
       background-color: #1e1e1e;
       color: #fff;
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
     }
 
     /* Leuchtende Effekte */
     .glow {
       text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8), 0px 0px 20px rgba(255, 204, 0, 0.6);
-    }
-
-    /* Menü-Stile */
-    .menu {
-      width: 100%;
-      background-color: #2a2a2a;
-      display: flex;
-      justify-content: center;
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-    }
-
-    .menu a {
       color: #ffcc00;
-      font-size: 1.2em;
-      text-decoration: none;
-      margin: 0 20px;
-      position: relative;
-      transition: color 0.3s ease;
     }
 
-    .menu a:hover {
-      color: #fff;
-    }
-
-    .menu a::before,
-    .menu a::after {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 2px;
-      background: #ffcc00;
-      transition: 0.4s;
-    }
-
-    .menu a::before {
-      top: 0;
-      left: 0;
-    }
-
-    .menu a::after {
-      bottom: 0;
-      right: 0;
-    }
-
-    .menu a:hover::before,
-    .menu a:hover::after {
-      width: 100%;
-    }
-
-    /* Kopfbereich */
-    .vip-header {
+    /* Container für die Nachricht */
+    .blocked-container {
       text-align: center;
-      padding: 20px;
-      color: #ffcc00;
       background-color: #2a2a2a;
-      width: 100%;
-      font-size: 1.8em;
-    }
-
-    /* Produkt-Container */
-    .product-container {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      margin: 20px;
-      gap: 20px;
-      max-width: 1200px;
-    }
-
-    /* Produkt-Box */
-    .product-box {
-      background-color: #2a2a2a;
-      padding: 20px;
+      padding: 40px;
       border-radius: 10px;
-      width: 300px;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+      max-width: 600px;
+      margin: 0 20px;
     }
 
-    .product-box:hover {
-      transform: scale(1.05);
+    /* Logo */
+    .logo {
+      width: 150px;
+      height: auto;
+      margin-bottom: 20px;
+      animation: glow 1.5s infinite alternate;
     }
 
-    /* Leuchtende Rahmen für VIP-Boxen */
-    .gold-vip {
-      border: 2px solid #ffcc00;
-      box-shadow: 0px 0px 15px #ffcc00;
-    }
-
-    .silver-vip {
-      border: 2px solid #c0c0c0;
-      box-shadow: 0px 0px 10px #c0c0c0;
-    }
-
-    /* Tabellenstil für Preise */
-    .price-table {
-      width: 100%;
-      margin-top: 10px;
+    /* Schlüssel-Icon */
+    .icon {
+      font-size: 50px;
       color: #ffcc00;
-      border-collapse: collapse;
+      margin-bottom: 20px;
     }
 
-    .price-table td {
-      padding: 10px;
-      text-align: center;
-      background-color: #3a3a3a;
-      border: 1px solid #444;
+    /* Animation für leuchtende Effekte */
+    @keyframes glow {
+      from {
+        filter: brightness(1);
+      }
+      to {
+        filter: brightness(1.5);
+      }
     }
 
-    .price-table tr td:nth-child(2) {
-      color: #ffcc00;
-      font-weight: bold;
-    }
-
-    /* Stil für den Titel und die Beschreibung in der Produktbox */
-    .product-box h2 {
-      color: #ffcc00;
-      font-size: 1.4em;
+    /* Stile für die Nachricht und den Text */
+    h1 {
+      font-size: 2em;
+      margin: 20px 0;
       text-shadow: 0px 0px 5px #ffcc00;
     }
 
-    .product-box p {
-      margin-top: 10px;
+    p {
+      font-size: 1.1em;
       color: #ccc;
     }
-    
   </style>
 </head>
 <body>
 
-  <!-- Menübereich -->
-  <div class="menu">
-    <a href="#home" class="glow">Home</a>
-    <a href="#gold" class="glow">Gold VIP</a>
-    <a href="#silver" class="glow">Silber VIP</a>
-    <a href="#kontakt" class="glow">Kontakt</a>
-  </div>
+  <!-- Container für die Nachricht -->
+  <div class="blocked-container">
+    <!-- Logo-Platzhalter -->
+    <img src="logo.png" alt="Logo" class="logo">
 
-  <!-- VIP Header -->
-  <div class="vip-header">
-    <h1 class="glow">👑 Willkommen in der VIP Lounge! 👑</h1>
-    <p>Exklusive Deals und vergünstigte Preise nur für VIP-Mitglieder!</p>
-  </div>
+    <!-- Symbol für gesperrte Seite -->
+    <div class="icon glow">🔒</div>
 
-  <!-- Produktcontainer -->
-  <div class="product-container">
-    
-    <div class="product-box gold-vip" id="gold">
-      <h2>💎 Gold VIP - Exklusive Angebote</h2>
-      <table class="price-table">
-        <tr>
-          <td>1g</td>
-          <td>8 €</td>
-        </tr>
-        <tr>
-          <td>5g</td>
-          <td>40 €</td>
-        </tr>
-        <tr>
-          <td>10g</td>
-          <td>75 €</td>
-        </tr>
-      </table>
-      <p>Verfügbare Sorten: La Mousse, Fresh Frozen</p>
-    </div>
-    
-    <div class="product-box silver-vip" id="silver">
-      <h2>✨ Silber VIP - Rabatt für Einsteiger</h2>
-      <table class="price-table">
-        <tr>
-          <td>1g</td>
-          <td>9 €</td>
-        </tr>
-        <tr>
-          <td>5g</td>
-          <td>42 €</td>
-        </tr>
-        <tr>
-          <td>10g</td>
-          <td>80 €</td>
-        </tr>
-      </table>
-      <p>Verfügbare Sorten: Gelato, Blue Dream</p>
-    </div>
-    
+    <!-- Titel und Nachricht -->
+    <h1 class="glow">Seite Gesperrt</h1>
+    <p>Der Zugriff auf diese Seite ist derzeit eingeschränkt. Bitte kontaktieren Sie den Administrator für weitere Informationen.</p>
   </div>
 
 </body>
