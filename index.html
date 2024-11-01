@@ -17,6 +17,61 @@
       align-items: center;
     }
 
+    /* Leuchtende Effekte */
+    .glow {
+      text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8), 0px 0px 20px rgba(255, 204, 0, 0.6);
+    }
+
+    /* Menü-Stile */
+    .menu {
+      width: 100%;
+      background-color: #2a2a2a;
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .menu a {
+      color: #ffcc00;
+      font-size: 1.2em;
+      text-decoration: none;
+      margin: 0 20px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .menu a:hover {
+      color: #fff;
+    }
+
+    .menu a::before,
+    .menu a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #ffcc00;
+      transition: 0.4s;
+    }
+
+    .menu a::before {
+      top: 0;
+      left: 0;
+    }
+
+    .menu a::after {
+      bottom: 0;
+      right: 0;
+    }
+
+    .menu a:hover::before,
+    .menu a:hover::after {
+      width: 100%;
+    }
+
     /* Kopfbereich */
     .vip-header {
       text-align: center;
@@ -24,6 +79,7 @@
       color: #ffcc00;
       background-color: #2a2a2a;
       width: 100%;
+      font-size: 1.8em;
     }
 
     /* Produkt-Container */
@@ -43,15 +99,24 @@
       border-radius: 10px;
       width: 300px;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s;
     }
 
-    /* Gold und Silber VIP-Stile */
+    .product-box:hover {
+      transform: scale(1.05);
+    }
+
+    /* Leuchtende Rahmen für VIP-Boxen */
     .gold-vip {
       border: 2px solid #ffcc00;
+      box-shadow: 0px 0px 15px #ffcc00;
     }
 
     .silver-vip {
       border: 2px solid #c0c0c0;
+      box-shadow: 0px 0px 10px #c0c0c0;
     }
 
     /* Tabellenstil für Preise */
@@ -78,25 +143,36 @@
     .product-box h2 {
       color: #ffcc00;
       font-size: 1.4em;
+      text-shadow: 0px 0px 5px #ffcc00;
     }
 
     .product-box p {
       margin-top: 10px;
       color: #ccc;
     }
-
+    
   </style>
 </head>
 <body>
 
+  <!-- Menübereich -->
+  <div class="menu">
+    <a href="#home" class="glow">Home</a>
+    <a href="#gold" class="glow">Gold VIP</a>
+    <a href="#silver" class="glow">Silber VIP</a>
+    <a href="#kontakt" class="glow">Kontakt</a>
+  </div>
+
+  <!-- VIP Header -->
   <div class="vip-header">
-    <h1>👑 Willkommen in der VIP Lounge! 👑</h1>
+    <h1 class="glow">👑 Willkommen in der VIP Lounge! 👑</h1>
     <p>Exklusive Deals und vergünstigte Preise nur für VIP-Mitglieder!</p>
   </div>
 
+  <!-- Produktcontainer -->
   <div class="product-container">
     
-    <div class="product-box gold-vip">
+    <div class="product-box gold-vip" id="gold">
       <h2>💎 Gold VIP - Exklusive Angebote</h2>
       <table class="price-table">
         <tr>
@@ -115,7 +191,7 @@
       <p>Verfügbare Sorten: La Mousse, Fresh Frozen</p>
     </div>
     
-    <div class="product-box silver-vip">
+    <div class="product-box silver-vip" id="silver">
       <h2>✨ Silber VIP - Rabatt für Einsteiger</h2>
       <table class="price-table">
         <tr>
